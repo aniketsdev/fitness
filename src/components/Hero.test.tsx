@@ -5,9 +5,9 @@ import { Hero } from './Hero'
 describe('Hero', () => {
   it('renders the headline', () => {
     render(<Hero />)
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
-      /your body, your timeline/i
-    )
+    const h1 = screen.getByRole('heading', { level: 1 })
+    expect(h1).toHaveTextContent(/your body/i)
+    expect(h1).toHaveTextContent(/your timeline/i)
   })
 
   it('renders the WhatsApp CTA', () => {
