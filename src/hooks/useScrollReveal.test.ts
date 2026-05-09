@@ -12,7 +12,7 @@ describe('useScrollReveal', () => {
     disconnectSpy = vi.fn()
     observerCallback = null
 
-    class ObserverStub implements IntersectionObserver {
+    class ObserverStub {
       root = null
       rootMargin = ''
       thresholds: number[] = []
@@ -54,7 +54,7 @@ describe('useScrollReveal', () => {
     })
     act(() => {
       observerCallback?.(
-        [{ isIntersecting: true, target: el } as IntersectionObserverEntry],
+        [{ isIntersecting: true, target: el } as unknown as IntersectionObserverEntry],
         {} as IntersectionObserver
       )
     })
